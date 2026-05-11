@@ -19,8 +19,8 @@ node_modules/
 *.pem
 
 # Markdown files (except README)
-*.md
-!README.md
+# *.md
+# !README.md
 
 # Debug
 npm-debug.log*
