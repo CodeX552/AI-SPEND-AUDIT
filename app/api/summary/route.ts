@@ -1,7 +1,6 @@
 import { NextResponse } from 'next/server'
 
 const ANTHROPIC_API_KEY = process.env.ANTHROPIC_API_KEY || ''
-import PROMPT from '../../../../PROMPTS.md'
 
 export async function POST(req: Request){
   try{

@@ -2,7 +2,13 @@ import { auditTools } from '../../../lib/audit-engine'
 import { TOOL_ID_TO_NAME } from '../../../constants/pricing'
 import React from 'react'
 
-type Params = { params: { id: string } }
+type Params = { params: Promise<{ id: string }> }
+
+export const dynamic = 'force-dynamic'
+
+export function generateStaticParams() {
+  return []
+}
 
 export default async function ReportPage({ params }: Params){
   const { id } = await params;

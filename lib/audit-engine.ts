@@ -27,7 +27,7 @@ export function auditTools(tools: ToolInput[], teamSize: number, primaryUse: str
     const plan = meta.plans.find(p=>p.id===t.plan)
     if(plan && plan.monthlyPerSeat && t.seats <= 2 && plan.monthlyPerSeat > 30){
       // Suggest downgrade to Indie if exists
-      const indie = meta.plans.find(p=>p.name.toLowerCase().includes('indie') || p.monthlyPerSeat && p.monthlyPerSeat < plan.monthlyPerSeat)
+      const indie = meta.plans.find(p=>p.name.toLowerCase().includes('indie') || (p.monthlyPerSeat && plan.monthlyPerSeat && p.monthlyPerSeat < plan.monthlyPerSeat))
       if(indie){
         monthlySavings = (plan.monthlyPerSeat - (indie.monthlyPerSeat||0)) * t.seats
         recommendedAction = `Downgrade to ${indie.name}`
